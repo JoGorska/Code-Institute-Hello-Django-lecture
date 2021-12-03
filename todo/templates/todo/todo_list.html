@@ -13,7 +13,7 @@
             
             {% if item.done %}
 
-                <li><strike>{{item.name}}</strike> </li> 
+                <li><strike>{{item.name}}</strike></li> 
 
             {% else %}
 
@@ -21,11 +21,11 @@
 
             {% endif %}
 
-
-
+        {% empty %}
+            <li>You have nothing to do</li>
         {% endfor %}
 
     </ul>
-    
+    <a href="/add">Add Item</a>
 </body>
 </html>
