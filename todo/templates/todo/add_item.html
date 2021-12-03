@@ -9,6 +9,8 @@
 <body>
     <h1>Add to do item:</h1>
     <form method="POST" action="add">
+        <!-- important - to be added in the forms {% csrf_token %}-->
+        {% csrf_token %}
         <div>
             <p>
                 <label for="id_name">Name</label>
