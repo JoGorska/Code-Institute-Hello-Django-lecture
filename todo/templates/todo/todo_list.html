@@ -9,9 +9,22 @@
 <body>
     <h1>To do list:</h1>
     <ul>
-        <li>first item</li>
-        <li>second item</li>
-        <li>third item</li>
+        {% for item in items %}
+            
+            {% if item.done %}
+
+                <li><strike>{{item.name}}</strike> </li> 
+
+            {% else %}
+
+                <li>{{item.name}}</li>
+
+            {% endif %}
+
+
+
+        {% endfor %}
+
     </ul>
     
 </body>
