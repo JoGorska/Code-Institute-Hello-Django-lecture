@@ -12,8 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import dj_database_url
-# to hide secret key
-from decouple import config
+import os
+# to hide secret key, by stack overflow (link below)
+# from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,13 +25,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # secret key in env.py
-
-SECRET_KEY = config("SECRET_KEY")
+# https://stackoverflow.com/questions/64208678/hiding-secret-key-in-django-project-on-github-after-uploading-project
+# SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['to-do-list-in-django.herokuapp.com']
+ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 
 # Application definition
@@ -88,7 +90,7 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://aeglokfkroydnx:e5f0a73aed0cb766691bc8f6f3c2071ca43113362613f2f4b63a3bffd7e2ecf6@ec2-34-193-235-32.compute-1.amazonaws.com:5432/d66m7ssqi0ljj1')
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 
 }
 # Password validation
