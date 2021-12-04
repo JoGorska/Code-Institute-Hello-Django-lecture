@@ -13,11 +13,11 @@
             
             {% if item.done %}
 
-                <li><strike>{{item.name}}</strike></li> 
+                <li><strike>{{item.name}}</strike>
 
             {% else %}
 
-                <li>{{item.name}}</li>
+                <li>{{item.name}}
 
             {% endif %}
                 <a href="/toggle/{{ item.id }}">
@@ -30,6 +30,7 @@
                 <a href="/delete/{{ item.id }}">
                     <button>Delete</button>
                 </a>
+            </li>
 
         {% empty %}
             <li>You have nothing to do</li>
