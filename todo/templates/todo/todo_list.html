@@ -20,6 +20,9 @@
                 <li>{{item.name}}</li>
 
             {% endif %}
+                <a href="/toggle/{{ item.id }}">
+                    <button>Toggle</button>
+                </a>
 
                 <a href="/edit/{{ item.id }}">
                     <button>Edit</button>
