@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import dj_database_url
 import os
-import env
+
 
 # this variable is used to set debug to true or false
 development = os.environ.get('DEVELOPMENT', False)
