@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import dj_database_url
 import os
+import env
 
 # this variable is used to set debug to true or false
 development = os.environ.get('DEVELOPMENT', False)
@@ -30,7 +31,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # secret key in env.py
 # https://stackoverflow.com/questions/64208678/hiding-secret-key-in-django-project-on-github-after-uploading-project
 # SECRET_KEY = config("SECRET_KEY")
-SECRET_KEY = os.environ.get('SECRET_KEY')
+if development:
+    SECRET_KEY = env.SECRET_KEY
+else:
+    SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # to prevent debug in production, the development variable has been set
