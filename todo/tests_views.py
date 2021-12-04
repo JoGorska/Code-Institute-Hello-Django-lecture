@@ -26,7 +26,14 @@ class TestViews(TestCase):
 
     def test_can_delete_item(self):
         item = Item.objects.create(name='Test todo Item')
-        response = self.client.get(f'/edit/{item.id}')
+        response = self.client.get(f'/delete/{item.id}')
         self.assertRedirects(response, '/')
         existing_items = Item.objects.filter(id=item.id)
         self.assertEqual(len(existing_items), 0)
+
+    def test_can_toggle_item(self):
+        item = Item.objects.create(name='Test todo Item', done=True)
+        response = self.client.get(f'/toggle/{item.id}')
+        self.assertRedirects(response, '/')
+        updated_item = Item.objects.get(id=item.id)
+        self.assertFalse(updated_item.done)
