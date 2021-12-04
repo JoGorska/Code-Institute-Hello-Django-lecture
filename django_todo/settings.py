@@ -36,7 +36,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # to prevent debug in production, the development variable has been set
 DEBUG = development
 
-ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
+if development:
+    ALLOWED_HOSTS = ['localhost']
+else:
+    ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 
 # Application definition
