@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <h1>Add to do item:</h1>
+    <form method="POST" action="add">
+        <!-- important - to be added in the forms {% csrf_token %}-->
+        {% csrf_token %}
+        {{ form.as_p}}
+        <button type="submit">Add Item</button>
+    </form>
+
+</div>
+
+    {% endblock %}
