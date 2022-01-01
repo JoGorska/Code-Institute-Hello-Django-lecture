@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bootstrap_tags %}
 
 {% block content %}
 
 <div class="container">
-    <h1>Add to do item:</h1>
+    <h1 class="mt-5 mb-5">Add to do item:</h1>
     <form method="POST" action="add">
         <!-- important - to be added in the forms {% csrf_token %}-->
         {% csrf_token %}
-        {{ form.as_p}}
-        <button type="submit">Add Item</button>
+        {{ form|as_bootstrap}}
+        <button type="submit" class="btn btn-outline-success">Add Item</button>
     </form>
 
 </div>
