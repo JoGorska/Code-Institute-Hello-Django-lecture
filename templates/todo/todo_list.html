@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="container mt-5 bg-dark">
 
     <h1>To do list:</h1>
 
@@ -16,7 +16,7 @@
 
             <h2 class="accordion-header font-neon" id="heading-{{item.id}}">
 
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item-id-{{item.id}}" aria-expanded="true" aria-controls="collapseOne">
+                <button class="accordion-button collapsed bg-secondary border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#item-id-{{item.id}}" aria-expanded="true" aria-controls="collapseOne">
                     <strike>{{item.name}}</strike>
                 </button>
             </h2>
@@ -24,7 +24,7 @@
             {% else %}
             <h2 class="accordion-header" id="heading-{{item.id}}">
 
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item-id-{{item.id}}" aria-expanded="true" aria-controls="collapseOne">
+                <button class="accordion-button collapsed bg-secondary border-bottom" type="button" data-bs-toggle="collapse" data-bs-target="#item-id-{{item.id}}" aria-expanded="true" aria-controls="collapseOne">
                     {{item.name}}
                 </button>
             </h2>
@@ -55,14 +55,16 @@
                 </div>
             </div>
         </div>
+    </div>
         {% empty %}
 
             <div class="accordion-item">You have nothing to do</div>
 
+
         {% endfor %}
 
     </div>
-    <a href="/add">Add Item</a>
+    <a class="btn btn-outline-info mt-5" href="/add">Add Item</a>
 
 </div>
 
